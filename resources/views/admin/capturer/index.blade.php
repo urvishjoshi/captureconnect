@@ -55,11 +55,11 @@
 									<td>{{ $capturer->rating }}</td>
 									<td>{{ $capturer->created_at->format('d/m/Y').' at '.$capturer->created_at->format('g:i A') }}</td>
 									<td class="d-flex">
-										<a href="{{ route('a.capturers.show',['id'=>$capturer->id,'name'=>$capturer->name]) }}" class="fas fa-id-badge text-success mx-auto my-auto" name="view"></a>
-										<a href="{{ route('a.capturers.show',['id'=>$capturer->id,'name'=>$capturer->name]) }}" class="fas fa-edit ml-2 my-auto" name="edit"></a>
+										<a href="{{ route('a.studios.show',['id'=>$capturer->id,'name'=>$capturer->name]) }}" class="fas fa-id-badge text-success mx-auto my-auto" name="view"></a>
+										<a href="{{ route('a.capturers.show',['id'=>$capturer->id,'name'=>$capturer->name]) }}" class="fas fa-edit mx-2 my-auto" name="edit"></a>
 										<form action="{{ route('a.capturers.destroy',$capturer->id) }}" method="POST">
 											@csrf @method('DELETE')
-											<button class="btn" type="submit" name="delete"><i class="fas fa-trash-alt text-danger"></i></button>
+											<button class="btn p-0" type="submit" name="delete"><i class="fas fa-trash-alt text-danger"></i></button>
 										</form>
 									</td>
 								</tr>

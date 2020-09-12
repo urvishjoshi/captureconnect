@@ -48,9 +48,9 @@
 			  </a>
 			</li>
 			<li class="nav-item">
-			  <a href="{{ route('a.toiletusers.index') }}" class="nav-link {{ (request()->is('admin/toiletusers*')) ? 'active' : '' }}">
+			  <a href="{{ route('a.toiletusers.index') }}" class="nav-link {{ (request()->is('admin/users*')) ? 'active' : '' }}">
 				<i class="nav-icon fas fa-users"></i>
-				<p>Videographers</p>
+				<p>Users</p>
 			  </a>
 			</li>
 			<li class="nav-item">
