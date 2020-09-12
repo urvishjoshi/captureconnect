@@ -1,4 +1,4 @@
-@section('title','Add Toilet Owner')
+@section('title','Add - Studio Owner')
 @extends('admin.layouts.app')
 @section('content')
 <div class="container pt-3 px-3">

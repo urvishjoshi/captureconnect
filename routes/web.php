@@ -18,6 +18,7 @@ Route::group(['prefix'=>'admin'],function(){
 		Route::resource("toilets",'ToiletController');
 		Route::resource("sales",'SalesController');
 		Route::resource("ratings",'RatingController');
+		Route::resource("users",'UserController');
 		Route::resource("toiletusers",'ToiletuserController');
 		Route::resource("reports",'ReportController');
 		Route::resource("feedbacks",'FeedbackController');

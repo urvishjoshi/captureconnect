@@ -48,21 +48,21 @@
 			  </a>
 			</li>
 			<li class="nav-item">
-			  <a href="{{ route('a.toiletusers.index') }}" class="nav-link {{ (request()->is('admin/users*')) ? 'active' : '' }}">
+			  <a href="{{ route('a.users.index') }}" class="nav-link {{ (request()->is('admin/users*')) ? 'active' : '' }}">
 				<i class="nav-icon fas fa-users"></i>
 				<p>Users</p>
 			  </a>
 			</li>
 			<li class="nav-item">
-			  <a href="{{ route('a.toilets.index') }}" class="nav-link {{ (request()->is('admin/toilets*')) ? 'active' : '' }}">
-				<i class="fas fa-restroom pl-1 pr-1"></i>
-				  <p>Portfolio</p>
+			  <a href="{{ route('a.studios.index') }}" class="nav-link {{ (request()->is('admin/studios*')) ? 'active' : '' }}">
+				<i class="fab fa-instagram pl-1 pr-1" style="font-size: 20px!important"></i>
+				  <p class=" ml-1">Studios</p>
 			  </a>
 			</li> 
 			<li class="nav-item">
 			  <a href="{{ route('a.sales.index') }}" class="nav-link {{ (request()->is('admin/sales*')) ? 'active' : '' }}">
-				<span style="font-size: 18px">Rs.</span>
-				  <p>Sales</p>
+				<i class="fas fa-rupee-sign pl-2"></i>
+				  <p class="pl-2 ml-1">Sales</p>
 			  </a>
 			</li> 
 			<li class="nav-item">

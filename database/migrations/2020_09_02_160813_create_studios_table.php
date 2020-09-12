@@ -20,11 +20,12 @@ class CreateStudiosTable extends Migration
                     ->references('id')
                     ->on('capturers')
                     ->onDelete('cascade');
-            $table->string('studio_name');
-            $table->text('studio_banner')->nullable();
-            $table->text('studio_address');
-            $table->text('studio_lat')->nullable();
-            $table->text('studio_lng')->nullable();
+            $table->string('name');
+            $table->text('banner')->nullable();
+            $table->text('address');
+            $table->text('lat')->nullable();
+            $table->text('lng')->nullable();
+            $table->enum('status', ['0', '1','-1'])->default('0')->comment('0-Not Active,1-Active,-1:Denied');
             $table->timestamps();
         });
     }

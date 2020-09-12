@@ -65,7 +65,7 @@
 													@if( $status==-1 )
 													<form action="{{ route('a.requests.update',$owner->id) }}" method="POST" class="form-inline">
 														@method('DELETE') @csrf
-														<button class="btn" name="btn" type="submit" value="-2"><i class="fas fa-trash-alt text-danger"></i></button>
+														<button class="btn p-0" name="btn" type="submit" value="-2"><i class="fas fa-trash-alt text-danger"></i></button>
 													</form>
 													@endif
 
