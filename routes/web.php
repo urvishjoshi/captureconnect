@@ -52,3 +52,28 @@ Route::group(['prefix'=>'toiletowner'],function(){
 		});
 	});
 });
+//					capturer
+Route::group(['prefix'=>'capturers'],function(){
+	Route::get('', function () { return redirect()->route('to.login'); });
+	Route::group(['namespace'=>'Capturer'],function(){
+		Route::get('login', 'AuthController@showLoginForm')->name('to.login');
+		Route::post('login', 'AuthController@login');
+		Route::get('register', 'AuthController@showRegisterForm');
+		Route::post('register', 'AuthController@create');
+	});
+	Route::group(['middleware'=>'auth:capturer'],function(){
+		Route::resource("feedbacks",'FeedbackController');
+
+		Route::group(['namespace'=>'capturer'],function(){
+			Route::post('logout', 'AuthController@logout')->name('logout');
+			Route::resource('dashboard', 'HomeController');
+			Route::resource("requests",'RequestController');
+			Route::resource("personal",'PersonalController');
+			Route::resource("studios",'StudioController');
+			Route::resource("users",'ToiletuserController');
+			Route::resource("sales",'SaleController');
+			Route::resource("ratings",'RatingController');
+			Route::resource("reports",'ReportController');
+		});
+	});
+});

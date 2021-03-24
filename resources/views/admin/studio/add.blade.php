@@ -1,4 +1,4 @@
-@section('title','Add - Toilet')
+@section('title','Add - Studio')
 @section('link')
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
@@ -16,7 +16,7 @@
 						@method('POST') @csrf
 						<div class="row align-content-center">
 							<div class="col-auto d-flex">
-								<h3 class="mb-0">Add toilet to
+								<h3 class="mb-0">Add Studio to
 								</h3>
 							</div>
 							<div class="col-auto">
@@ -31,15 +31,15 @@
 					</div>
 					<div class="container justify-content-center p-0" id="requestTable">
 							<div class="modal-body row">
-								<div class="col-6">
-									<h6 class="heading-small text-muted mb-2">Toilet information</h6>
+								<div class="col">
+									<h6 class="heading-small text-muted mb-2">Studio information</h6>
 
 									<div class="lg-4">
 										<div class="row">
 											<div class="col-lg-6">
 												<div class="form-group">
-													<label class="form-control-label" for="toiletname">Toilet name</label>
-													<input type="text" id="toiletname" name="toiletname" class="form-control" placeholder="Toilet name" required>
+													<label class="form-control-label" for="toiletname">Studio name</label>
+													<input type="text" id="toiletname" name="toiletname" class="form-control" placeholder="Studio name" required>
 													@error('toiletname')
 													<span class="text-danger font-14" role="alert">
 														<strong>{{ $message }}</strong>
@@ -49,7 +49,7 @@
 											</div>
 											<div class="col-lg-6">
 												<div class="form-group">
-													<label class="form-control-label" for="toiletstatus">Toilet status</label>
+													<label class="form-control-label" for="toiletstatus">Studio status</label>
 													<select class="custom-select" id="toiletstatus" name="toiletstatus">
 														<option disabled>Status</option>
 														<option value="1" class="text-success">Active</option>
@@ -61,9 +61,9 @@
 									</div>
 									<div class="lg-4">
 										<div class="row">
-											<div class="form-group col-md-3 px-1">
+											<div class="form-group col-md-3">
 												<label class="form-control-label d-flex" for="toiletprice">Price in KD</label>
-												<input id="toiletprice" name="toiletprice" class="form-control px-1" placeholder="KD" value="" type="number" min="0" step="0.001" required>
+												<input id="toiletprice" name="toiletprice" class="form-control" placeholder="KD" value="" type="number" min="0" step="0.001" required>
 												@error('toiletprice')
 												<span class="text-danger font-14" role="alert">
 													<strong>{{ $message }}</strong>
@@ -72,7 +72,7 @@
 											</div>
 											<div class="col-md px-1">
 												<div class="form-group">
-													<label class="form-control-label" for="toilettype">Toilet type</label>
+													<label class="form-control-label" for="toilettype">Studio type</label>
 													<select class="custom-select" id="toilettype" name="toilettype">
 														<option disabled>toilet for</option>
 														<option value="2" selected>Male & Female</option>
@@ -84,7 +84,7 @@
 											<div class="col-md px-1">
 												<div class="form-group">
 													<label class="form-control-label" for="complexname">Complex name</label>
-													<input id="complexname" name="complexname" class="form-control" placeholder="Toilet Complex" value="" type="text" required>
+													<input id="complexname" name="complexname" class="form-control" placeholder="Studio Complex" value="" type="text" required>
 													@error('complexname')
 													<span class="text-danger font-14" role="alert">
 														<strong>{{ $message }}</strong>
@@ -104,7 +104,7 @@
 												@enderror
 											</div>
 										</div>
-										<div class="row">
+										{{-- <div class="row">
 											<div class="col-lg-4">
 												<div class="form-group">
 													<label for="country">Country</label>
@@ -133,10 +133,10 @@
 												</div>
 											</div>
 											<span class="text-secondary font-14 pl-2 align-self-end">*All fields are mandatory to fill</span>
-										</div>
+										</div> --}}
 									</div>
 								</div> {{-- modal-body-row --}}
-								<div class="col-6" >
+								{{-- <div class="col-6" >
 									<div class="alert bg-primary text-dark alert-dismissible fade show" role="alert" style="position: fixed;z-index: 99;max-width: 50%;float: right;opacity: 0.6">
 										Click anywhere on the map to put a marker for your toilet
 										<button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -150,11 +150,11 @@
 
 									<script src="https://maps.googleapis.com/maps/api/js?key={{$key->mapkey}}&callback=myMap"></script>
 
-								</div>
+								</div> --}}
 							</div>
 							<div class="modal-footer bg-light">
 								<a href="{{ url()->previous() }}" class="btn btn-secondary" style="color: white!important;">Back</a>
-								<button type="submit" id="btn-addtoilet" name="btn-addtoilet" class="btn btn-primary">Add Toilet</button>
+								<button type="submit" id="btn-addtoilet" name="btn-addtoilet" class="btn btn-primary">Add Studio</button>
 							</div>
 						</div>
 					</form>
@@ -169,53 +169,53 @@
 @section('jquery')
 <script>
 
-$(document).ready(function(){
-	// In your Javascript (external .js resource or <script> tag)
-    // $('.js-example-basic-single').select2();
+// $(document).ready(function(){
+// 	// In your Javascript (external .js resource or <script> tag)
+//     // $('.js-example-basic-single').select2();
 
-	$("#country").on('change',function(){
-		$.ajax({
-			method:"GET",
-			url:"{{ route('a.toilets.show',1) }}",
-			data: {
-			   'country_id': $(this).val(),
-				'_token': $('input[name=_token]').val(),
-				'_method': '{{method_field('GET')}}',
-			},
-			dataType:'html',
-			success:function(data){
-				if(data<1)
-					$("#state").html('<option value="">-No Governance found-</option>');
-				else
-					$("#state").html(data);
-				$("#city").html('<option value="">-select-</option>');
-			}
-		});
-	});
+// 	$("#country").on('change',function(){
+// 		$.ajax({
+// 			method:"GET",
+// 			url:"{{ route('a.toilets.show',1) }}",
+// 			data: {
+// 			   'country_id': $(this).val(),
+// 				'_token': $('input[name=_token]').val(),
+// 				'_method': '{{method_field('GET')}}',
+// 			},
+// 			dataType:'html',
+// 			success:function(data){
+// 				if(data<1)
+// 					$("#state").html('<option value="">-No Governance found-</option>');
+// 				else
+// 					$("#state").html(data);
+// 				$("#city").html('<option value="">-select-</option>');
+// 			}
+// 		});
+// 	});
 
-	$("#state").on('change',function(){
-		$.ajax({
-			method:"GET",
-			url:"{{ route('a.toilets.show',1) }}",
-			data: {
-			   'state_id': $(this).val(),
-				'_token': $('input[name=_token]').val(),
-				'_method': '{{method_field('GET')}}',
-			},
-			dataType:'html',
-			success:function(data){
-				if(data<1)
-					$("#city").html('<option value="">-No city found-</option>');
-				else
-					$("#city").html(data);
-			}
-		});
-	});
-});
+// 	$("#state").on('change',function(){
+// 		$.ajax({
+// 			method:"GET",
+// 			url:"{{ route('a.toilets.show',1) }}",
+// 			data: {
+// 			   'state_id': $(this).val(),
+// 				'_token': $('input[name=_token]').val(),
+// 				'_method': '{{method_field('GET')}}',
+// 			},
+// 			dataType:'html',
+// 			success:function(data){
+// 				if(data<1)
+// 					$("#city").html('<option value="">-No city found-</option>');
+// 				else
+// 					$("#city").html(data);
+// 			}
+// 		});
+// 	});
+// });
 </script>
 @endsection
 @endsection
-<script>
+{{-- <script>
 		var marker;
 	var infowindow;
 
@@ -250,4 +250,4 @@ $(document).ready(function(){
 		infowindow.setContent('Set this location as a toilet spot')
 		infowindow.open(map,marker);
 	}
-</script>
+</script> --}}

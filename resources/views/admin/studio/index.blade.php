@@ -1,4 +1,4 @@
-@section('title','Toilets')
+@section('title','Studio')
 @extends('admin.layouts.app')
 @section('content')
 <?php $key=\App\Model\Admin::first('mapkey'); ?>
@@ -10,10 +10,10 @@
 			<div class="row">
 				<div class="col-3"></div>
 				<div class="col-md text-center">
-					<h2>All Toilets</h2>
+					<h2>All Studio</h2>
 				</div>
 				<div class="col-md-3 text-right">
-					<a href="{{route('a.toilets.create')}}" class="btn btn-primary">Add Toilets</a>
+					<a href="{{route('a.studios.create')}}" class="btn btn-primary">Add Studio</a>
 				</div>
 			</div><!-- /.row -->
 			<HR width=20%>
@@ -43,7 +43,7 @@
 								</thead>
 								<tbody>
 									@if( count($toilets) == 0 )
-									<tr><td colspan="10"><center><h2>No Toilets registered</h2></center></td></tr>
+									<tr><td colspan="10"><center><h2>No Studio registered</h2></center></td></tr>
 									@else
 									@foreach($toilets as $toilet)
 									<tr>
@@ -51,7 +51,7 @@
 										<td title="{{ $toilet->owner['email'] }}">
 											{{ $toilet->owner['id'] }}
 										</td>
-										<td>{{ $toilet->toilet_name }}</td>
+										<td>{{ $toilet->studio_name }}</td>
 										<td><b>KD{{ $toilet->price }}</b></td>
 										<td>{{ $toilet->complex_name }}</td>
 										<td>{{ $toilet->address }}</td>

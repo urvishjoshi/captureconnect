@@ -34,12 +34,12 @@
 			  </a>
 			</li>  
 
-			<li class="nav-item">
+			{{-- <li class="nav-item">
 			  <a href="{{ route('a.locations.index') }}" class="nav-link {{ (request()->is('admin/locations*')) ? 'active' : '' }}">
 				<i class="fas fa-map-marker-alt pl-2"></i>&nbsp;&nbsp;&nbsp;
 				<p>Locations</p>
 			  </a>
-			</li>  
+			</li>   --}}
 
 			<li class="nav-item"> <!-- Kishan changed removed menu-open class -->
 			  <a href="{{ route('a.capturers.index') }}" class="nav-link {{ (request()->is('admin/capturers*')) ? 'active' : '' }}">

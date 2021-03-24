@@ -48,6 +48,10 @@ return [
             'driver' => 'session',
             'provider' => 'toiletowners',
         ],
+        'capturer' => [
+            'driver' => 'session',
+            'provider' => 'capturers',
+        ],
         'user' => [
             'driver' => 'session',
             'provider' => 'users',
@@ -89,6 +93,10 @@ return [
         'toiletowners' => [
             'driver' => 'eloquent',
             'model' => App\Model\ToiletOwner::class,
+        
+        ],'capturers' => [
+            'driver' => 'eloquent',
+            'model' => App\Model\Capturer::class,
         ],
         // 'toiletusers' => [
         //     'driver' => 'eloquent',

@@ -17,6 +17,10 @@ class RedirectIfAuthenticated
             return redirect('toiletowner/dashboard');
         }
 
+        if ($guard == "capturer" && Auth::guard($guard)->check()) {
+            return redirect('capturers/dashboard');
+        }
+
         if (Auth::guard($guard)->check()) {
             return redirect('/home');
         }

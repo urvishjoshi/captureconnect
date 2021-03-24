@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Model\Studio;
+use App\Model\Capturer;
 use Illuminate\Http\Request;
 
 class StudioController extends Controller
@@ -11,7 +12,7 @@ class StudioController extends Controller
     private $url = 'admin.studio.';
     public function index()
     {
-        $toilets = Studio::with('owner')->orderBy('status', 'desc')->get();
+        $toilets = Studio::with('owner')->get();
         return view($this->url.'index',compact('toilets'));
     }
 
@@ -19,7 +20,7 @@ class StudioController extends Controller
     {
         if($name = request()->input('name'))
         {
-            $studios = Studio::where('owner_id','=',$id)->with('owner')->orderBy('status', 'desc')->get();
+            $studios = Studio::where('owner_id','=',$id)->with('owner')->get();
             return view($this->url.'show',compact('studios','name'));
         }
 
@@ -95,9 +96,8 @@ class StudioController extends Controller
 
     public function create()
     {
-        $countries = Country::orderBy('country')->get();
-        $owners = ToiletOwner::where('status','1')->get();
-        return view($this->url.'add',compact('countries','owners'));
+        $owners = Capturer::where('status','1')->get();
+        return view($this->url.'add',compact('owners'));
     }
 
 

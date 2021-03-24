@@ -4,8 +4,9 @@ namespace App\Model;
 
 use App\Model\Studio;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Capturer extends Model
+class Capturer extends Authenticatable
 {
     protected $fillable = ['email','password','name','mobileno','pro_pic','studio','studio_address','category','experience','rating','status'];
 
